@@ -30,28 +30,62 @@ npx hardhat test solidity
 npx hardhat test mocha
 ```
 
-### Make a deployment to Sepolia
+# SimpleStorage Solidity Project
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+This project demonstrates a basic Solidity smart contract and uses the Hardhat development environment for compiling and testing smart contracts.
 
-To run the deployment to a local chain:
+## Project Structure
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
+```
+1_SECTION1_SIMPLE_STORAGE/
+├── contracts/
+│   └── SimpleStorage.sol      # The main Solidity contract
+├── artifacts/                 # Compiled contract artifacts (auto-generated)
+├── cache/                     # Hardhat cache (auto-generated)
+├── hardhat.config.ts          # Hardhat configuration file
+├── package.json               # Node.js project file
+└── README.md                  # Project documentation
 ```
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+## What I Learned Today
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
+- How to set up a Hardhat project for Solidity development
+- How to write a basic Solidity contract using different data types:
+  - `bool`, `uint256`, `int256`, `string`, `address`, `bytes32`
+- How to configure the Solidity compiler version in both Hardhat and VS Code
+- How to compile a Solidity contract using Hardhat
+- How to resolve version mismatch warnings in VS Code by setting the correct remote compiler version
 
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
+## Getting Started
 
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
+### Prerequisites
 
-After setting the variable, you can run the deployment with the Sepolia network:
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Hardhat](https://hardhat.org/)
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+### Installation
+
+1. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+2. Compile the contract:
+
+    ```bash
+    npx hardhat compile
+    ```
+
+### VS Code Solidity Extension
+
+To avoid version mismatch warnings, set your Solidity extension to use version `0.8.18`:
+
+    {
+      "solidity.compileUsingRemoteVersion": "v0.8.18"
+    }
+
+## License
+
+This project is licensed under the MIT License.
