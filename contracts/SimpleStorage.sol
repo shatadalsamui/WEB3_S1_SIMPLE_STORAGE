@@ -9,9 +9,22 @@ contract SimpleStorage {
 
     int256 number2 = -77; // Signed integer, value -77
 
-    string favoriteNumber = "88"; // String variable, value "88"
+    string favoriteNumber1 = "88"; // String variable, value "88"
 
     address myAddress = 0x3de7A543fD2b4f6a9D675F3Ceca39D5fe9F40F76; // Ethereum address
-    
+
     bytes32 favBytes32 = "cat"; // 32-byte fixed-size byte array, value "cat"
+
+    //-----------------------------------------------
+
+    uint256 public favoriteNumber;
+
+    function store(uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+    }
+
+    function retrieve() public view returns (uint256) {
+        return favoriteNumber;
+    }
+    //-----------------------------------------------
 }
