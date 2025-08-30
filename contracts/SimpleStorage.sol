@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.18; // Use Solidity version 0.8.18 or above
 
 contract SimpleStorage {
@@ -21,13 +21,6 @@ contract SimpleStorage {
 
     uint256[] listOfFavoriteNumbers;
 
-    struct Person {
-        uint256 favNumber;
-        string name;
-    }
-
-    Person[] public listOfPeople;
-
     Person public myFriend = Person({favNumber: 7, name: "Sarnab"});
 
     Person public myFriend2 = Person({favNumber: 69, name: "Sankhya"});
@@ -40,4 +33,17 @@ contract SimpleStorage {
         return favoriteNumber;
     }
     //-----------------------------------------------
+
+    struct Person { //type person of its charateristics 
+        uint256 favNumber;
+        string name;
+    }
+    Person[3] public listOfPeople2; //static max size of 3 index from 0 to 2
+
+    Person[] public listOfPeople; //dynamic
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {//function to add a name 
+        
+        listOfPeople.push(Person(_favoriteNumber,_name));
+    }
 }
